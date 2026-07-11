@@ -81,7 +81,7 @@ hookdash start
 ### Option 3: Docker
 
 ```bash
-docker run -p 9090:9090 -v hookdash-data:/app/data hookdash/hookdash
+docker run -p 9090:9090 -v hookdash-data:/app/data me-npm/hookdash
 ```
 
 ### Test it works
@@ -303,7 +303,7 @@ If an endpoint fails 5 times consecutively, hookdash **opens the circuit** and s
 
 ```bash
 # Clone the repo
-git clone https://github.com/hookdash/hookdash.git
+git clone https://github.com/me-npm/hookdash.git
 cd hookdash
 
 # Create your config
@@ -326,7 +326,7 @@ docker run -p 9090:9090 -v hookdash-data:/app/data hookdash
 
 ```bash
 # Clone
-git clone https://github.com/hookdash/hookdash.git
+git clone https://github.com/me-npm/hookdash.git
 cd hookdash
 
 # Install dependencies
@@ -380,6 +380,6 @@ MIT — see [LICENSE](LICENSE) for details.
 
 **Built with ❤️ for developers who are tired of losing webhooks.**
 
-[⭐ Star on GitHub](https://github.com/hookdash/hookdash) · [🐛 Report Bug](https://github.com/hookdash/hookdash/issues) · [💡 Request Feature](https://github.com/hookdash/hookdash/issues)
+[⭐ Star on GitHub](https://github.com/me-npm/hookdash) · [🐛 Report Bug](https://github.com/me-npm/hookdash/issues) · [💡 Request Feature](https://github.com/me-npm/hookdash/issues)
 
 </div>
