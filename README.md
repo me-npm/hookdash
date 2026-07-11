@@ -16,7 +16,9 @@ Receive, queue, retry, and monitor webhooks — no Redis, no Postgres, just SQLi
 
 <br/>
 
-![hookdash walkthrough](demo-walkthrough.mp4)
+<div align="center">
+  <video src="https://github.com/me-npm/hookdash/blob/main/demo-walkthrough.mp4?raw=true" width="100%" controls></video>
+</div>
 
 ---
 
