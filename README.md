@@ -12,10 +12,11 @@ Receive, queue, retry, and monitor webhooks — no Redis, no Postgres, just SQLi
 
 [Quick Start](#-quick-start) · [Configuration](#-configuration) · [Dashboard](#-dashboard) · [API](#-api-reference) · [Docker](#-docker) · [Contributing](#-contributing)
 
-<br/><br/>
-<video src="https://raw.githubusercontent.com/me-npm/hookdash/main/demo-walkthrough.mp4" width="100%" controls></video>
-
 </div>
+
+<br/>
+
+![hookdash walkthrough](demo-walkthrough.mp4)
 
 ---
 
