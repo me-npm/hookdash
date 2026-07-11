@@ -1,0 +1,15 @@
+services:
+  hookdash:
+    build: .
+    ports:
+      - "9090:9090"
+    volumes:
+      - hookdash-data:/app/data
+      - ./hookdash.config.yml:/app/hookdash.config.yml:ro
+    environment:
+      - STRIPE_WEBHOOK_SECRET=${STRIPE_WEBHOOK_SECRET:-}
+      - GITHUB_WEBHOOK_SECRET=${GITHUB_WEBHOOK_SECRET:-}
+    restart: unless-stopped
+
+volumes:
+  hookdash-data:

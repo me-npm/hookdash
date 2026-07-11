@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-node: '20'
+        cache: 'npm'
+
+    - name: Install dependencies (Server)
+      run: npm ci
+
+    - name: Build Server
+      run: npm run build:server
+
+    - name: Install dependencies (Dashboard)
+      run: |
+        cd dashboard
+        npm ci
+
+    - name: Build Dashboard
+      run: |
+        cd dashboard
+        npm run build
+
+    - name: Run Typecheck
+      run: npm run typecheck
