@@ -53,6 +53,6 @@ export const sseRoutes: FastifyPluginAsync = async (fastify) => {
     });
 
     // Tell Fastify not to send standard response
-    reply.sent = true;
+    reply.hijack();
   });
 };

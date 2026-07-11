@@ -47,7 +47,7 @@ export async function createServer(config: HookdashConfig) {
 
   // ─── API Routes ───────────────────────────────────────
   // These are registered as Fastify plugins
-  const { ingestionRoutes } = await import('./ingestion/routes.js');
+  const ingestionRoutes = (await import('./ingestion/routes.js')).default;
   await app.register(ingestionRoutes);
 
   const { apiRoutes } = await import('./api/routes.js');

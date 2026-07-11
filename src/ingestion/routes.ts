@@ -5,28 +5,7 @@ import { getProvider } from '../providers/registry.js';
 import { normalizeHeaders, parseBodyEventType, matchesEventFilter } from './parser.js';
 import type { Source, Endpoint, SSEEvent } from '../types/index.js';
 
-// ─── SSE Client Registry ────────────────────────────────────────
-const sseClients = new Set<FastifyReply>();
-
-export function addSSEClient(reply: FastifyReply): void {
-  sseClients.add(reply);
-}
-
-export function removeSSEClient(reply: FastifyReply): void {
-  sseClients.delete(reply);
-}
-
-function broadcastSSE(event: SSEEvent): void {
-  const payload = `event: ${event.type}\ndata: ${JSON.stringify(event.data)}\n\n`;
-  for (const client of sseClients) {
-    try {
-      client.raw.write(payload);
-    } catch {
-      sseClients.delete(client);
-    }
-  }
-}
-
+import { broadcastSSE } from '../api/sse.js';
 // ─── Route Params / Types ───────────────────────────────────────
 interface WebhookParams {
   source: string;
@@ -149,17 +128,14 @@ export default async function ingestionRoutes(fastify: FastifyInstance): Promise
       createDeliveries();
 
       // ── 9. Emit SSE event for real-time dashboard ─────────────
-      broadcastSSE({
-        type: 'event:new',
-        data: {
-          id: eventId,
-          source_id: source.id,
-          source_name: source.name,
-          source_provider: source.provider,
-          event_type: eventType,
-          delivery_count: deliveryIds.length,
-          received_at: new Date().toISOString(),
-        },
+      broadcastSSE('event:new', {
+        id: eventId,
+        source_id: source.id,
+        source_name: source.name,
+        source_provider: source.provider,
+        event_type: eventType,
+        delivery_count: deliveryIds.length,
+        received_at: new Date().toISOString(),
       });
 
       // ── 10. Return 202 Accepted ───────────────────────────────
