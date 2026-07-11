@@ -25,8 +25,11 @@ export function connectSSE(onMessage: (event: string, data: any) => void): () =>
 
 async function request(path: string, options: RequestInit = {}) {
   const prefix = (import.meta as any).env.DEV ? 'http://localhost:9090' : '';
+  const isWriteMethod = options.method === 'POST' || options.method === 'PUT';
+  
   const response = await fetch(`${prefix}${path}`, {
     ...options,
+    body: isWriteMethod && !options.body ? '{}' : options.body,
     headers: {
       'Content-Type': 'application/json',
       ...options.headers,
