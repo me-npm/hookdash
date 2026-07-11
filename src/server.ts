@@ -32,7 +32,7 @@ export async function createServer(config: HookdashConfig) {
 
   await app.register(fastifyRawBody, {
     field: 'rawBody',
-    global: false,
+    global: true,
     encoding: false, // Return Buffer
     runFirst: true,
   });
