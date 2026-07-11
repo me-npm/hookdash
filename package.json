@@ -1,6 +1,6 @@
 {
   "name": "hookdash",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Zero-config, self-hosted webhook gateway with a beautiful dashboard. Receive, queue, retry, and monitor webhooks.",
   "keywords": ["webhook", "gateway", "self-hosted", "dashboard", "retry", "queue", "stripe", "github"],
   "license": "MIT",
