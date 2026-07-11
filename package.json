@@ -9,6 +9,10 @@
     "type": "git",
     "url": "git+https://github.com/me-npm/hookdash.git"
   },
+  "bugs": {
+    "url": "https://github.com/me-npm/hookdash/issues"
+  },
+  "homepage": "https://github.com/me-npm/hookdash#readme",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
