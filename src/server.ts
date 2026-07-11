@@ -73,7 +73,7 @@ export async function createServer(config: HookdashConfig) {
     await app.register(fastifyStatic, {
       root: dashboardPath,
       prefix: '/',
-      wildcard: false,
+      wildcard: true,
     });
 
     // SPA fallback: serve index.html for all non-API, non-webhook routes
