@@ -115,8 +115,4 @@ declare module 'fastify' {
     hookdashConfig: HookdashConfig;
     db: import('better-sqlite3').Database;
   }
-
-  interface FastifyRequest {
-    rawBody?: Buffer;
-  }
 }

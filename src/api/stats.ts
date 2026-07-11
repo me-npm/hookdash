@@ -40,7 +40,6 @@ export const statsRoutes: FastifyPluginAsync = async (fastify) => {
         successfulDeliveries = row.count;
       } else if (row.status === 'failed' || row.status === 'retrying') {
         failedDeliveries += row.count;
-        if (row.status === 'pending') pendingDeliveries = row.count;
       } else if (row.status === 'dead') {
         deadDeliveries = row.count;
       } else if (row.status === 'pending') {
